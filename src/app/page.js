@@ -1,6 +1,8 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import ProductItem from '../components/ProductItem'
+import styles from "./page.module.css"
 
 export default function Home() {
   const [products, setProducts] = useState([])
@@ -9,8 +11,8 @@ export default function Home() {
 
   useEffect(() => {
     try {
-      fetch("https.//fakestoreapi.com/products")
-        .then((response) = response.json())
+      fetch("https://fakestoreapi.com/products")
+        .then((response) => response.json())
         .then((result) => setProducts(result))
     }
     catch (error) {
@@ -32,7 +34,7 @@ export default function Home() {
       something went wrong!
     </div>
   }
-  return <div>
+  return <div className={styles.products}>
     {products.map((product) => (
       <ProductItem key={product.id} product={product} />
     ))}
