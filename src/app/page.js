@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import ProductItem from '../components/ProductItem'
 
 export default function Home() {
   const [products, setProducts] = useState([])
@@ -9,8 +10,8 @@ export default function Home() {
 
   useEffect(() => {
     try {
-      fetch("https.//fakestoreapi.com/products")
-        .then((response) = response.json())
+      fetch("https://fakestoreapi.com/products")
+        .then((response) => response.json())
         .then((result) => setProducts(result))
     }
     catch (error) {
